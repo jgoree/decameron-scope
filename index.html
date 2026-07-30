@@ -1,0 +1,806 @@
+<!doctype html><html><head><!-- frame-runtime --><script>window.__FRAME_PREAMBLE={"capabilities":{"downloads":"downloads.BABDwU1K.js","mcp":"mcp.hoz5jxDa.js","permissions":"permissions.ByA9Fd8x.js","self":"self.D3u1zjZe.js","user":"user.Cp1-RnjB.js"},"transforms":"_transforms.DYk1Ltlh.js","comments":"_comments.DiwQajF_.js","translate":"_translate.C5leZL2A.js"}</script><script>(function(){"use strict";const Ee="modulepreload",we=function(e){return"/"+e},Se={},ee=function(t,n,l){let i=Promise.resolve();function s(f){const c=new Event("vite:preloadError",{cancelable:!0});if(c.payload=f,window.dispatchEvent(c),!c.defaultPrevented)throw f}return i.then(f=>{for(const c of f||[])c.status==="rejected"&&s(c.reason);return t().catch(s)})},te=["light","dark","system"];function ne(e){if(e===null||typeof e!="object")return!1;const t=e.__frame_init;return t!==null&&typeof t=="object"}function W(e){return e!==null&&typeof e=="object"&&e.__frame_size_poke===!0}function re(e){if(e===null||typeof e!="object")return!1;const t=e.__frame_theme;if(t===null||typeof t!="object")return!1;const n=t.theme;return typeof n=="string"&&te.includes(n)}function se(e){try{typeof reportError=="function"?reportError(e):setTimeout(()=>{throw e},0)}catch{}}const oe=Object.freeze(Object.assign(Object.create(null),{user:Object.freeze(Object.assign(Object.create(null),{id:null,isOwner:!1,canEdit:!1,name:null,avatarUrl:null,email:null}))}));function Y(e){if(window===top||e.type==="auxclick"&&e.button!==1)return;const t=e.composedPath?e.composedPath():[e.target];let n=null;for(let f=0;f<t.length;f++){const c=t[f];if(c&&c.matches&&c.matches("a[href],area[href]")){n=c;break}}if(!n&&e.target&&e.target.closest&&(n=e.target.closest("a[href],area[href]")),!n)return;const l=n.getAttribute("href");if(!l)return;let i,s;try{i=new URL(l,document.baseURI),s=new URL(document.baseURI).origin}catch{return}(i.protocol==="http:"||i.protocol==="https:")&&i.origin!==s&&(e.preventDefault(),parent.postMessage({__frame_nav:!0,url:i.href},"*"))}const K={};function D(e){if(window===top)return;const t=Date.now();t-(K[e]||0)<500||(K[e]=t,parent.postMessage({__frame_engaged:!0,kind:e},"*"))}const ie=2e3,x=["wheel","touchstart","touchmove","keydown","pointerdown"];let J=0;function ae(e){e.isTrusted&&(J=Date.now())}function ce(){addEventListener("click",Y,!0),addEventListener("auxclick",Y,!0)}function le(){for(let e=0;e<x.length;e++)addEventListener(x[e],ae,{capture:!0,passive:!0});addEventListener("scroll",e=>{e.isTrusted&&Date.now()-J<ie&&D("scroll")},{capture:!0,passive:!0}),addEventListener("pointermove",e=>{e.isTrusted&&D("pointer")},{capture:!0,passive:!0}),addEventListener("click",e=>{e.isTrusted&&D("click")},{capture:!0,passive:!0})}const I="__frame_scroll",ue=150,fe=310,de=160,me=3e4;function pe(){let e=0,t=!1,n=!1,l=!1,i=0;const s=a=>{try{sessionStorage.setItem(I,JSON.stringify({y:a}))}catch{}},f=()=>{if(t){t=!1;return}n=!0,clearTimeout(e),e=setTimeout(()=>s(scrollY),ue)};try{addEventListener("scroll",f,{passive:!0}),addEventListener("pagehide",()=>{clearTimeout(e),s(scrollY)})}catch{}const c=()=>{let a;try{a=sessionStorage.getItem(I)}catch{return null}if(a===null)return null;let _;try{_=JSON.parse(a)}catch{_=null}const m=_?.y;if(!(typeof m=="number"&&Number.isFinite(m)&&m>=0)){try{sessionStorage.removeItem(I)}catch{}return null}return m};let g=!1;const p=a=>{try{const _=scrollY;scrollTo({top:a,left:0,behavior:"instant"}),i=a,l=!0,s(a);const m=scrollY;m!==_&&(t=!0),m!==a&&!g&&(g=!0,addEventListener("load",()=>{try{if(scrollY===m){const y=c();p(y!==null?y:i)}}catch{}},{once:!0}))}catch{}},o=()=>{try{return!!location.hash}catch{return!0}};let u=!1;const d=()=>{try{if(u||innerWidth>fe||innerHeight>de)return;u=!0;const a=Date.now(),_=()=>{try{removeEventListener("resize",_)}catch{}if(Date.now()-a>me||n||o())return;const m=c();p(m!==null?m:i)};addEventListener("resize",_)}catch{}};let h=!1,b=!1;return{restore(){if(h||(h=!0,o()))return;const a=c();a!==null&&(p(a),d())},promoted(){if(b||(b=!0,o()))return;const a=c();a!==null?(p(a),d()):l&&p(i)}}}function he(e,t,n){const l=[...t.values()].filter(i=>i.targets.some(s=>s.startsWith(e+".")));return{wrap(i,s){const f=`${e}.${i}`,c=l.filter(g=>g.targets.includes(f));return c.length===0?(...g)=>{try{return s(...g)}catch(p){return Promise.reject(p)}}:(...g)=>{let p=g;for(const u of c){const d=u.module.parameters;if(d)try{p=d(p)}catch{return Promise.reject({code:"transform_error",id:u.id,scope:e,message:"parameters transform failed"})}}let o;try{o=s(...p)}catch(u){o=Promise.reject(u)}return o.then(u=>{for(let d=c.length-1;d>=0;d--){const h=c[d],b=h.module.returns;if(b)try{u=b(u)}catch{return n({id:h.id,scope:e,leg:"returns"}),u}}return u},u=>{for(let d=c.length-1;d>=0;d--){const h=c[d],b=h.module.throws;if(b)try{u=b(u)}catch{return n({id:h.id,scope:e,leg:"throws"}),Promise.reject(u)}}return Promise.reject(u)})}}}}function ge(e,t,n,l=()=>{}){const i=new Set(e.changes??[]),s=new Map;for(const f of i){const c=t[f];c&&s.set(f,c)}return{contract:e.contract,changes:i,flags:new Set(e.flags??[]),capabilities:e.capabilities??{},capBudgets:e.capBudgets??{},transforms:s,shellOrigin:n.shellOrigin,mount:n.mount,pipe:f=>he(f,s,l)}}(function(){const e=Object.defineProperty,t=globalThis,n=["RTCPeerConnection","webkitRTCPeerConnection","RTCDataChannel","RTCIceCandidate","RTCSessionDescription","RTCRtpSender","RTCRtpReceiver"];let l=0;for(let i=0;i<n.length;i++){const s=n[i];try{e(t,s,{value:void 0,writable:!1,configurable:!1})}catch{try{delete t[s]}catch{}try{e(t,s,{value:void 0,writable:!1,configurable:!0})}catch{}}typeof t[s]=="function"&&l++}if(l&&window!==top)try{parent.postMessage({__frame_rtc_lockdown_failed:l},"*")}catch{}})();const _e=1e4,ye=Object.freeze([...window.__FRAME_PREAMBLE?.origins??["https://claude.ai","https://preview.claude.ai"]]);function G(e){for(const t of ye)if(t.endsWith(":*"))try{const n=new URL(e);if(`${n.protocol}//${n.hostname}:*`===t)return!0}catch{}else if(e===t)return!0;return!1}const R=Object.freeze({...window.__FRAME_PREAMBLE?.capabilities}),U=window.__FRAME_PREAMBLE?.transforms,z=window.__FRAME_PREAMBLE?.comments,$=window.__FRAME_PREAMBLE?.translate,T=/^[\w.-]+\.js$/,be=/^[a-z][a-z0-9_-]{0,63}$/;let V=null,j=null;function q(e,t,n){try{Object.defineProperty(e,t,{value:n,writable:!1,configurable:!1,enumerable:!0})}catch{try{Object.defineProperty(e,t,{value:n,writable:!1,configurable:!0,enumerable:!0})}catch{}}}let B=!1;function X(e){const t=document.documentElement;e==="light"||e==="dark"?(t.dataset.theme=e,t.style.colorScheme=e,B=!0):B&&(delete t.dataset.theme,t.style.colorScheme="",B=!1)}const A=Object.assign(Object.create(null),{mcp:Object.assign(Object.create(null),{watchTool:{handlerArg:3}})}),M=new Map;function Q(e,t){const n=M.get(e);if(!n)return;const l=Object.assign(Object.create(null),t);Object.assign(n.impl,l),n.impl.__settled=()=>Promise.reject({code:"capability_removed",message:`${e}: method not in this runtime`});const i=n.queue;n.queue=[];for(const s of i){const f=l[s.method];if(f)if(A[e]?.[s.method])try{s.resolve(f(...s.args))}catch{k(s,A[e][s.method].handlerArg,{code:"transform_error",message:`${e}.${s.method} rejected its arguments`})}else f(...s.args).then(s.resolve,s.reject);else{const c={code:"capability_removed",message:`${e}.${s.method} is not in this runtime`},g=A[e]?.[s.method];if(g){k(s,g.handlerArg,c);continue}s.reject(c)}}}function ve(e,t){const n=M.get(e);if(!n)return;n.impl.__settled=()=>Promise.reject(t);const l=n.queue;n.queue=[];for(const i of l){const s=A[e]?.[i.method];if(s){k(i,s.handlerArg,t);continue}i.reject(t)}}function N(e,t){const n=oe[e];if(!n){ve(e,t);return}Q(e,Object.fromEntries(Object.entries(n).map(([l,i])=>[l,()=>Promise.resolve(i)])))}function k(e,t,n){if(e.syncState?.dead)return;const l=e.args[t];typeof l=="function"&&queueMicrotask(()=>{if(!e.syncState?.dead)try{l({type:"error",error:n})}catch(i){se(i)}})}const F=Object.getOwnPropertyDescriptor(window,"claude");if(window!==top&&!(F&&F.writable===!1)){ce(),le();let e=null;try{e=pe()}catch{}const t=F?.value??{};q(window,"claude",t);const n=o=>{const u={impl:Object.create(null),queue:[]};M.set(o,u);const d=u.impl,h=new Proxy(d,{get:(b,a)=>{if(typeof a!="string"||a==="then"||a==="toJSON"||a==="valueOf")return;if(a==="toString")return Object.prototype.toString;const _=A[o]?.[a];return _?(...m)=>{if(typeof m[_.handlerArg]!="function")throw new TypeError(`${o}.${a} requires a handler function`);const y=d[a];if(y)return y(...m);if(d.__settled){const v={dead:!1},P={args:[...m],syncState:v};return d.__settled().catch(C=>k(P,_.handlerArg,C)),()=>{v.dead=!0}}let E=null;const S={dead:!1};return u.queue.push({method:a,args:m,resolve:v=>{E=typeof v=="function"?v:null,S.dead&&E?.()},reject:()=>{},syncState:S}),()=>{S.dead=!0,E?.()}}:(...m)=>{const y=d[a]??d.__settled;return y?y(...m):new Promise((E,S)=>{u.queue.push({method:a,args:m,resolve:E,reject:S})})}},set:()=>!1});q(t,o,h)};for(const o of Object.keys(R)){if(t[o]!==void 0){q(t,o,t[o]);continue}n(o)}let l=null,i=null,s=0;const f=o=>{o.source!==parent||!G(o.origin)||ne(o.data)&&(l=o.data.__frame_init,j=o.origin,removeEventListener("message",f),clearTimeout(s),i?.())};addEventListener("message",f),parent.postMessage({__frame_connect:!0},"*");const c=new Promise(o=>{i=o,s=setTimeout(()=>{removeEventListener("message",f),o()},_e)}),g=document.readyState==="loading"?new Promise(o=>document.addEventListener("DOMContentLoaded",()=>o(),{once:!0})):Promise.resolve();g.then(()=>{try{e?.restore()}catch{}});const p=o=>{if(!(o.source!==parent||!G(o.origin))&&W(o.data)){removeEventListener("message",p);try{e?.promoted()}catch{}}};addEventListener("message",p),c.then(async()=>{if(!l||!j){for(const r of M.keys())N(r,{code:"not_granted",message:"frame initialization did not arrive - capability unavailable"});return}X(l.theme);const o=j;let u=!1,d=!1;addEventListener("message",r=>{if(r.source!==parent||r.origin!==o)return;re(r.data)&&X(r.data.__frame_theme.theme);const w=r.data?.__fc_mode;w&&typeof w=="object"&&!u&&z&&T.test(z)&&(u=!0,h(z).then(H=>H.install?.(o,w.on===!0)).catch(()=>{}));const O=r.data?.__ft_cmd;O&&typeof O=="object"&&!d&&$&&T.test($)&&(d=!0,h($).then(H=>H.install?.(o,O)).catch(()=>{}))});const h=r=>ee(()=>import("/_runtime/"+r),void 0),b=Object.keys(l.capabilities??{});for(const r of b)Object.hasOwn(R,r)||be.test(r)&&t[r]===void 0&&(n(r),N(r,{code:"capability_disabled",message:"capability not in this runtime generation"}));const a=b.filter(r=>Object.hasOwn(R,r)).map(r=>[r,R[r]]).filter(r=>typeof r[1]=="string"&&T.test(r[1])),[_,...m]=await Promise.allSettled([U&&T.test(U)?h(U):Promise.resolve({}),...a.map(([,r])=>h(r))]),y=j;V=ge(l,_.status==="fulfilled"&&_.value?.TRANSFORMS||{},{shellOrigin:y,mount:Q},r=>parent.postMessage({__frame_cap_telemetry:r},y));const E=r=>parent.postMessage({__frame_cap_telemetry:{kind:"cap-load-error",cap:r}},y),S=V;m.forEach((r,w)=>{const O=a[w][0];if(r.status!=="fulfilled"){E(O);return}try{r.value?.install?.(S)}catch{E(O)}});for(const[r,w]of M)if(!(w.queue.length===0&&Object.keys(w.impl).length>0)){if(b.includes(r)){N(r,{code:"capability_disabled",message:"capability not available in this session"});continue}N(r,{code:"not_granted",message:"capability not available in this session"})}await g,parent.postMessage({__frame_ready:!0},j);let v=-1,P=0;const C=()=>{P=0;const r=Math.max(document.documentElement.scrollHeight,document.body?document.body.scrollHeight:0);r!==v&&(v=r,parent.postMessage({__frame_size:!0,h:r},y))},L=()=>{P||(P=setTimeout(C,200))},Z=new ResizeObserver(L);Z.observe(document.documentElement),document.body&&Z.observe(document.body),document.addEventListener("load",L,!0),document.fonts?.ready.then(L,()=>{}),addEventListener("beforeprint",()=>{v=-1,C()}),L(),addEventListener("message",r=>{if(!(r.source!==parent||r.origin!==y)&&W(r.data)){try{e?.promoted()}catch{}v=-1,L()}})})}})();</script><!-- /frame-runtime --><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1"><style>:root{color-scheme:light}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}</style></head><body>
+<title>Fase 1 · MCN — Multivacaciones Decameron</title>
+<style>
+:root {
+  --bg:#F5F3EE;--surface:#FFFFFF;--tint:#EAF3F3;--border:#DDD9D0;--border-hi:#B8B4AD;
+  --t1:#0D2233;--t2:#466070;--t3:#7898A8;
+  --teal:#006868;--teal-hi:#008888;--teal-bg:#DCF0F0;
+  --coral:#B83000;--coral-bg:#FBF0EC;
+  --green:#145E40;--green-bg:#E5F3EE;
+  --amber:#9A5800;--amber-bg:#FFF3E0;
+}
+@media(prefers-color-scheme:dark){:root{
+  --bg:#0A1A22;--surface:#112030;--tint:#082028;--border:#182D3E;--border-hi:#284858;
+  --t1:#E8E5DE;--t2:#82A4B5;--t3:#446070;
+  --teal:#1AA8A8;--teal-hi:#26C0C0;--teal-bg:#062025;
+  --coral:#FF5E2E;--coral-bg:#1C0B06;
+  --green:#28A870;--green-bg:#071510;
+  --amber:#E09820;--amber-bg:#1A1005;
+}}
+:root[data-theme=dark]{
+  --bg:#0A1A22;--surface:#112030;--tint:#082028;--border:#182D3E;--border-hi:#284858;
+  --t1:#E8E5DE;--t2:#82A4B5;--t3:#446070;
+  --teal:#1AA8A8;--teal-hi:#26C0C0;--teal-bg:#062025;
+  --coral:#FF5E2E;--coral-bg:#1C0B06;
+  --green:#28A870;--green-bg:#071510;
+  --amber:#E09820;--amber-bg:#1A1005;
+}
+:root[data-theme=light]{
+  --bg:#F5F3EE;--surface:#FFFFFF;--tint:#EAF3F3;--border:#DDD9D0;--border-hi:#B8B4AD;
+  --t1:#0D2233;--t2:#466070;--t3:#7898A8;
+  --teal:#006868;--teal-hi:#008888;--teal-bg:#DCF0F0;
+  --coral:#B83000;--coral-bg:#FBF0EC;
+  --green:#145E40;--green-bg:#E5F3EE;
+  --amber:#9A5800;--amber-bg:#FFF3E0;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;background:var(--bg);color:var(--t1);font-size:15px;line-height:1.65;-webkit-font-smoothing:antialiased}
+
+/* NAV */
+.nav{position:sticky;top:0;z-index:100;background:var(--surface);border-bottom:1px solid var(--border);padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:54px;gap:1rem}
+.nav-brand{font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--t3);white-space:nowrap;flex-shrink:0}
+.nav-brand b{color:var(--teal)}
+.nav-links{display:flex;gap:0;overflow-x:auto;scrollbar-width:none;flex:1;justify-content:center}
+.nav-links::-webkit-scrollbar{display:none}
+.nav-links a{display:block;padding:0 .85rem;height:54px;line-height:54px;font-size:.7rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--t3);text-decoration:none;white-space:nowrap;border-bottom:2px solid transparent;transition:color .15s,border-color .15s}
+.nav-links a:hover,.nav-links a.active{color:var(--teal);border-bottom-color:var(--teal)}
+.btn-theme{background:none;border:1px solid var(--border);color:var(--t3);cursor:pointer;padding:.25rem .55rem;border-radius:3px;font-size:.68rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;transition:border-color .15s,color .15s;flex-shrink:0}
+.btn-theme:hover{border-color:var(--teal);color:var(--teal)}
+
+/* LAYOUT */
+.c{max-width:1140px;margin:0 auto;padding:0 2rem}
+section{padding:3.5rem 0;border-bottom:1px solid var(--border)}
+section:last-of-type{border-bottom:none}
+
+/* TYPE */
+.eyebrow{font-size:.65rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);margin-bottom:.5rem}
+h1{font-size:clamp(1.9rem,4vw,3rem);font-weight:800;letter-spacing:-.025em;line-height:1.15;text-wrap:balance;color:var(--t1)}
+h2{font-size:clamp(1.25rem,2.5vw,1.65rem);font-weight:700;letter-spacing:-.015em;line-height:1.2;text-wrap:balance;color:var(--t1)}
+.lead{margin-top:.6rem;font-size:.95rem;color:var(--t2);max-width:62ch;line-height:1.7}
+.sec-hd{margin-bottom:2rem}
+
+/* HERO */
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start}
+.stat-row{display:grid;grid-template-columns:1fr 1fr;gap:.85rem;margin-top:1.75rem}
+.stat{background:var(--surface);border:1px solid var(--border);padding:.9rem 1.1rem;border-radius:3px}
+.stat-lbl{font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--t3);margin-bottom:.2rem}
+.stat-val{font-size:1.5rem;font-weight:800;color:var(--t1);letter-spacing:-.02em;line-height:1.2;font-variant-numeric:tabular-nums}
+.stat-val.a{color:var(--teal)}
+.stat-val.w{color:var(--coral);font-size:1.1rem}
+.stat-hint{font-size:.7rem;color:var(--t3);margin-top:.1rem}
+
+.mig-card{background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--teal);border-radius:0 3px 3px 0;padding:1.3rem 1.4rem}
+.mig-card-lbl{font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);margin-bottom:.9rem}
+.mig-row{display:flex;align-items:center;gap:.6rem;padding:.5rem 0;border-bottom:1px solid var(--border);font-size:.82rem}
+.mig-row:last-child{border-bottom:none}
+.tag{font-size:.7rem;font-weight:700;padding:.18rem .45rem;border-radius:2px;white-space:nowrap;flex-shrink:0}
+.tag-red{background:var(--coral-bg);color:var(--coral)}
+.tag-teal{background:var(--teal-bg);color:var(--teal)}
+.arr{color:var(--t3);flex-shrink:0}
+.mig-desc{color:var(--t2);font-size:.79rem}
+
+.alert-banner{display:flex;align-items:flex-start;gap:.7rem;background:var(--coral-bg);border:1px solid var(--border);border-left:3px solid var(--coral);border-radius:0 3px 3px 0;padding:.8rem 1rem;margin-top:1rem;font-size:.82rem;color:var(--t2)}
+.alert-banner strong{color:var(--coral)}
+.alert-icon{color:var(--coral);flex-shrink:0;margin-top:.05rem}
+
+/* PILLARS */
+.pilar{display:grid;grid-template-columns:3rem 1fr;gap:0 1.75rem;padding:2rem 0;border-top:1px solid var(--border)}
+.pilar:first-child{border-top:none;padding-top:0}
+.pilar-aside{display:flex;flex-direction:column;align-items:center;gap:0;padding-top:.1rem}
+.pilar-num{width:2.25rem;height:2.25rem;border-radius:50%;background:var(--teal);color:#fff;display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:800;flex-shrink:0}
+.pilar-line{width:1px;background:var(--border);flex:1;min-height:2rem;margin-top:.4rem}
+.pilar:last-child .pilar-line{display:none}
+.pilar-eye{font-size:.6rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--t3);margin-bottom:.2rem}
+.pilar-title{font-size:1.05rem;font-weight:700;color:var(--t1);letter-spacing:-.01em}
+.pilar-sub{font-size:.84rem;color:var(--t2);margin-top:.2rem;max-width:70ch}
+.pilar-body{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:1rem}
+.col-lbl{font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--t3);margin-bottom:.55rem}
+.dl{display:flex;flex-direction:column;gap:.35rem}
+.dl-i{display:flex;gap:.5rem;font-size:.83rem;color:var(--t2);line-height:1.5}
+.dot{width:5px;height:5px;border-radius:50%;background:var(--teal);margin-top:.55rem;flex-shrink:0}
+.dot-g{background:var(--green)}
+.infonote{margin-top:1rem;padding:.7rem .9rem;background:var(--amber-bg);border-left:3px solid var(--amber);border-radius:0 3px 3px 0;font-size:.78rem;color:var(--t2);line-height:1.5}
+.infonote strong{display:block;font-size:.62rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--amber);margin-bottom:.2rem}
+.phase2note{background:var(--tint);border-left:3px solid var(--t3)}
+.phase2note strong{color:var(--t3)}
+
+/* CHANNELS */
+.ch-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:1rem;margin-top:1.5rem}
+.ch-card{background:var(--surface);border:1px solid var(--border);padding:1.1rem 1.2rem;border-radius:3px}
+.ch-icon{width:2.2rem;height:2.2rem;background:var(--tint);border-radius:6px;display:flex;align-items:center;justify-content:center;color:var(--teal);margin-bottom:.65rem}
+.ch-name{font-size:.84rem;font-weight:700;color:var(--t1);margin-bottom:.35rem}
+.mode{display:inline-block;font-size:.6rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:.15rem .38rem;border-radius:2px;margin-right:.2rem;margin-bottom:.35rem}
+.mode-o{background:var(--teal-bg);color:var(--teal)}
+.mode-i{background:var(--green-bg);color:var(--green)}
+.ch-vol{font-size:.75rem;color:var(--t3);margin-top:.3rem;line-height:1.4}
+
+/* SCOPE */
+.scope-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.75rem;margin-top:1.5rem}
+.scope-col{background:var(--surface);border:1px solid var(--border);border-radius:3px;overflow:hidden}
+.scope-head{padding:.7rem 1.1rem;font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:.45rem}
+.scope-head.in{background:var(--green-bg);color:var(--green)}
+.scope-head.out{background:var(--coral-bg);color:var(--coral)}
+.scope-items{padding:.9rem 1.1rem;display:flex;flex-direction:column;gap:.3rem}
+.si{display:flex;gap:.55rem;font-size:.82rem;color:var(--t2);line-height:1.5;padding:.1rem 0}
+.si-dot{width:6px;height:6px;border-radius:50%;margin-top:.48rem;flex-shrink:0}
+.in-col .si-dot{background:var(--green)}
+.out-col .si-dot{background:var(--coral)}
+.scope-cat{font-size:.6rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--t3);margin-top:.6rem;margin-bottom:.2rem}
+.scope-cat:first-child{margin-top:0}
+
+/* TIMELINE */
+.tl-wrap{overflow-x:auto;padding-bottom:1rem;margin-top:1.5rem}
+.tl{min-width:680px;padding:0 1rem}
+.tl-track{position:relative;height:4px;background:var(--border);margin:3.5rem 0 3rem;border-radius:2px}
+.tl-fill{position:absolute;left:0;top:0;height:100%;background:var(--teal);border-radius:2px;width:55%}
+.tl-nodes{display:flex;justify-content:space-between;position:relative}
+.tl-node{display:flex;flex-direction:column;align-items:center;flex:1;position:relative}
+.tl-dot{width:13px;height:13px;border-radius:50%;background:var(--surface);border:2px solid var(--border-hi);position:absolute;top:-1.85rem;z-index:1;transform:translateX(-50%);left:50%}
+.tl-node.ms .tl-dot{background:var(--teal);border-color:var(--teal);box-shadow:0 0 0 4px var(--teal-bg)}
+.tl-node.dl .tl-dot{background:var(--coral);border-color:var(--coral);box-shadow:0 0 0 4px var(--coral-bg)}
+.tl-node.pre .tl-dot{background:var(--border-hi);border-color:var(--border-hi)}
+.tl-date{font-size:.68rem;font-weight:700;color:var(--t3);text-align:center;font-variant-numeric:tabular-nums;line-height:1.3;position:absolute;top:-4.5rem;white-space:nowrap;transform:translateX(-50%);left:50%}
+.tl-node.ms .tl-date{color:var(--teal)}
+.tl-node.dl .tl-date{color:var(--coral)}
+.tl-lbl{font-size:.75rem;font-weight:600;color:var(--t2);text-align:center;max-width:110px;line-height:1.4;margin-top:1.5rem;margin-left:auto;margin-right:auto}
+
+.warming-bar{margin-top:.5rem;background:var(--tint);border:1px solid var(--teal-bg);border-radius:3px;padding:.65rem 1rem;display:flex;align-items:center;gap:.75rem;font-size:.8rem}
+.warming-bar .w-lbl{font-size:.62rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--teal);white-space:nowrap}
+.warming-bar p{color:var(--t2)}
+
+/* INVESTMENT */
+.inv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:1.75rem}
+.inv-card{background:var(--surface);border:1px solid var(--border);padding:1.4rem;border-radius:3px}
+.inv-pct{font-size:2.25rem;font-weight:800;color:var(--teal);letter-spacing:-.03em;line-height:1;margin-bottom:.2rem;font-variant-numeric:tabular-nums}
+.inv-amt{font-size:1.2rem;font-weight:700;color:var(--t1);font-variant-numeric:tabular-nums;letter-spacing:-.02em;margin-bottom:.2rem}
+.inv-dt{font-size:.79rem;color:var(--t2);margin-bottom:.6rem}
+.inv-ms{font-size:.65rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--t3)}
+.inv-total{margin-top:1.5rem;padding:1.1rem 1.4rem;background:var(--tint);border:1px solid var(--teal-bg);border-left:3px solid var(--teal);border-radius:0 3px 3px 0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+.inv-total-lbl{font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--t2)}
+.inv-total-lbl span{display:block;font-size:.65rem;font-weight:400;color:var(--t3);margin-top:.15rem;letter-spacing:.05em}
+.inv-total-val{font-size:2rem;font-weight:800;color:var(--t1);font-variant-numeric:tabular-nums;letter-spacing:-.03em}
+
+/* RESPONSIBILITIES */
+.resp-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:.85rem;margin-top:1.5rem}
+.resp-card{background:var(--surface);border:1px solid var(--border);padding:1rem 1.2rem;border-radius:3px;display:flex;gap:.7rem;align-items:flex-start}
+.resp-ico{width:1.9rem;height:1.9rem;border-radius:50%;background:var(--amber-bg);color:var(--amber);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:.82rem;margin-top:.05rem}
+.resp-card h4{font-size:.83rem;font-weight:700;color:var(--t1);margin-bottom:.15rem}
+.resp-card p{font-size:.78rem;color:var(--t2);line-height:1.5}
+.resp-urgent{border-left:3px solid var(--coral);border-radius:0 3px 3px 0}
+.resp-urgent .resp-ico{background:var(--coral-bg);color:var(--coral)}
+
+/* SEGMENTS */
+.seg-wrap{overflow-x:auto;margin-top:1.5rem;border:1px solid var(--border);border-radius:3px}
+.seg-table{width:100%;border-collapse:collapse;font-size:.82rem}
+.seg-table th{background:var(--tint);padding:.65rem 1rem;text-align:left;font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--t3);border-bottom:1px solid var(--border)}
+.seg-table td{padding:.6rem 1rem;color:var(--t2);border-bottom:1px solid var(--border);vertical-align:top;line-height:1.5}
+.seg-table tr:last-child td{border-bottom:none}
+.seg-name{font-weight:600;color:var(--t1)}
+
+footer{padding:1.75rem 2rem;text-align:center;font-size:.72rem;color:var(--t3);border-top:1px solid var(--border)}
+footer a{color:var(--teal);text-decoration:none}
+
+@media(max-width:900px){
+  .hero-grid,.inv-grid{grid-template-columns:1fr}
+  .pilar-body{grid-template-columns:1fr}
+}
+@media(max-width:660px){
+  .scope-grid{grid-template-columns:1fr}
+  .pilar{grid-template-columns:1fr;gap:.75rem}
+  .pilar-aside{flex-direction:row}
+  .pilar-line{display:none}
+  .c{padding:0 1rem}
+  section{padding:2.5rem 0}
+  .nav{padding:0 1rem}
+  .nav-brand{display:none}
+  .stat-row{grid-template-columns:1fr 1fr}
+  .ch-grid{grid-template-columns:1fr 1fr}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+</style>
+
+<nav class="nav">
+  <div class="nav-brand"><b>Aquiva</b> × Decameron</div>
+  <div class="nav-links">
+    <a href="#proyecto" class="active">Proyecto</a>
+    <a href="#pilares">5 Pilares</a>
+    <a href="#canales">Canales</a>
+    <a href="#alcance">Alcance</a>
+    <a href="#segmentos">Segmentos</a>
+    <a href="#cronograma">Cronograma</a>
+    <a href="#inversion">Inversión</a>
+    <a href="#ustedes">Sus Pasos</a>
+  </div>
+  <button class="btn-theme" onclick="toggleTheme()" aria-label="Cambiar tema">◑</button>
+</nav>
+
+<main>
+
+<!-- ── PROYECTO ─────────────────────────────────── -->
+<section id="proyecto">
+<div class="c">
+<div class="hero-grid">
+  <div>
+    <div class="eyebrow">Enunciado de Trabajo · Julio 2026</div>
+    <h1>Fase 1 –<br>Marketing Cloud Next</h1>
+    <p class="lead">Migración de la operación de marketing digital de Multivacaciones Decameron de HubSpot y Botmaker a Salesforce Marketing Cloud Next y Data Cloud, en seis países, antes del cierre de HubSpot el 29 de octubre de 2026.</p>
+    <div class="stat-row">
+      <div class="stat"><div class="stat-lbl">Países</div><div class="stat-val a">6</div><div class="stat-hint">Colombia + 5 mercados</div></div>
+      <div class="stat"><div class="stat-lbl">Duración</div><div class="stat-val">13 sem</div><div class="stat-hint">Precio fijo</div></div>
+      <div class="stat"><div class="stat-lbl">Email / mes</div><div class="stat-val">14M</div><div class="stat-hint">IPs dedicadas</div></div>
+      <div class="stat"><div class="stat-lbl">Cierre HubSpot</div><div class="stat-val w">29 oct 2026</div><div class="stat-hint">Fecha límite</div></div>
+    </div>
+  </div>
+  <div>
+    <div class="mig-card">
+      <div class="mig-card-lbl">La Transición</div>
+      <div class="mig-row"><span class="tag tag-red">HubSpot</span><span class="arr">→</span><span class="tag tag-teal">MCN</span><span class="mig-desc">Correo, WhatsApp y SMS salientes</span></div>
+      <div class="mig-row"><span class="tag tag-red">Botmaker</span><span class="arr">→</span><span class="tag tag-teal">Digital Engagement</span><span class="mig-desc">WhatsApp y webchat entrantes</span></div>
+      <div class="mig-row"><span class="tag tag-red">HubSpot CRM</span><span class="arr">→</span><span class="tag tag-teal">Data Cloud</span><span class="mig-desc">Segmentos, contactos y engagement</span></div>
+      <div class="mig-row"><span class="tag tag-red">Meta en HubSpot</span><span class="arr">→</span><span class="tag tag-teal">Meta Audiences SKU</span><span class="mig-desc">Audiencias, lookalikes y supresión</span></div>
+    </div>
+    <div class="alert-banner">
+      <svg class="alert-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><circle cx="12" cy="16" r=".5" fill="currentColor"/></svg>
+      <div><strong>Oferta válida hasta el 24 agosto 2026.</strong> La org de Salesforce y las IPs dedicadas deben estar aprovisionadas antes del 31 de julio para no comprometer el inicio del calentamiento de IP el 11 de agosto.</div>
+    </div>
+  </div>
+</div>
+</div>
+</section>
+
+<!-- ── 5 PILARES ────────────────────────────────── -->
+<section id="pilares">
+<div class="c">
+<div class="sec-hd">
+  <div class="eyebrow">Estructura de Entrega</div>
+  <h2>Los 5 Pilares</h2>
+  <p class="lead">La implementación se organiza en cinco pilares con criterios de aceptación definidos. Pilar 1 es el fundamento; los demás dependen de él.</p>
+</div>
+
+<div>
+
+<!-- P1 -->
+<div class="pilar">
+  <div class="pilar-aside"><div class="pilar-num">1</div><div class="pilar-line"></div></div>
+  <div>
+    <div class="pilar-eye">Pilar 1 · Datos</div>
+    <div class="pilar-title">Ingestión y Modelado en Data Cloud</div>
+    <div class="pilar-sub">La capa de datos unificada que alimenta todos los demás pilares. Una org única para 6 países con separación por perfiles y gobernanza.</div>
+    <div class="pilar-body">
+      <div>
+        <div class="col-lbl">Qué entregamos</div>
+        <div class="dl">
+          <div class="dl-i"><div class="dot"></div><span>Org Data Cloud configurada; separación por país via perfiles (sin unidades de negocio separadas)</span></div>
+          <div class="dl-i"><div class="dot"></div><span><strong>5 DMOs personalizados:</strong> Individual, Punto de Contacto, Engagement, Consentimiento y Estado de Membresía</span></div>
+          <div class="dl-i"><div class="dot"></div><span>Flujos de datos desde: HubSpot (migración/exportación), Meta Ads, WhatsApp nativo MCN, Masivian SMS y formularios web</span></div>
+          <div class="dl-i"><div class="dot"></div><span>Carga mínima Multinet/ODLine: solo ID y estado de membresía para validar opt-in de WhatsApp</span></div>
+        </div>
+      </div>
+      <div>
+        <div class="col-lbl">Criterios de Aceptación</div>
+        <div class="dl">
+          <div class="dl-i"><div class="dot dot-g"></div><span>Todas las fuentes ingeridas en Data Cloud sin errores, visibles en sus DLOs</span></div>
+          <div class="dl-i"><div class="dot dot-g"></div><span>Mapeos DMO validados para los 5 objetos en 6 países</span></div>
+          <div class="dl-i"><div class="dot dot-g"></div><span>Separación por país correctamente aplicada en los 6 mercados</span></div>
+          <div class="dl-i"><div class="dot dot-g"></div><span>Estado de membresía Multinet disponible para validar opt-in WhatsApp</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- P2 -->
+<div class="pilar">
+  <div class="pilar-aside"><div class="pilar-num">2</div><div class="pilar-line"></div></div>
+  <div>
+    <div class="pilar-eye">Pilar 2 · Segmentos</div>
+    <div class="pilar-title">Reconstrucción con Verificación de Paridad</div>
+    <div class="pilar-sub">Todos los segmentos activos de HubSpot reproducidos en Data Cloud. Sin segmentos nuevos en Fase 1. Conteos verificados antes de la transición.</div>
+    <div class="pilar-body">
+      <div>
+        <div class="col-lbl">Segmentos reconstruidos</div>
+        <div class="dl">
+          <div class="dl-i"><div class="dot"></div><span>Nivel de engagement: frío, tibio, caliente, muy caliente (por comportamiento de apertura)</span></div>
+          <div class="dl-i"><div class="dot"></div><span>País: 6 países, Colombia en COP, resto en USD</span></div>
+          <div class="dl-i"><div class="dot"></div><span>Movimiento: Afiliados vs. Prospectos</span></div>
+          <div class="dl-i"><div class="dot"></div><span>Rol de contrato: Titular vs. Beneficiario</span></div>
+          <div class="dl-i"><div class="dot"></div><span>Rango de edad (excluye &lt;25 y &gt;60 años)</span></div>
+          <div class="dl-i"><div class="dot"></div><span>Cohorte de journey de bienvenida (nuevos contratos)</span></div>
+          <div class="dl-i"><div class="dot"></div><span>Reactivados y leads re-convertidos</span></div>
+          <div class="dl-i"><div class="dot"></div><span>Audiencias Meta espejo: lookalike, remarketing e interés/apertura por país</span></div>
+        </div>
+      </div>
+      <div>
+        <div class="col-lbl">Garantía de Paridad</div>
+        <div class="dl">
+          <div class="dl-i"><div class="dot dot-g"></div><span>Conteos de miembros en Data Cloud ≤ 2% de diferencia vs. HubSpot en la misma fecha de corte</span></div>
+          <div class="dl-i"><div class="dot dot-g"></div><span>Informe de verificación entregado antes de la transición</span></div>
+          <div class="dl-i"><div class="dot dot-g"></div><span>Audiencias Meta sincronizadas activas en el SKU</span></div>
+        </div>
+        <div class="infonote phase2note" style="margin-top:1rem">
+          <strong>Fase 2</strong>
+          Clusters RFM, streaming insights y segmentación avanzada nueva no están en el alcance de Fase 1.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- P3 -->
+<div class="pilar">
+  <div class="pilar-aside"><div class="pilar-num">3</div><div class="pilar-line"></div></div>
+  <div>
+    <div class="pilar-eye">Pilar 3 · Contenido</div>
+    <div class="pilar-title">Migración de Plantillas y Journeys</div>
+    <div class="pilar-sub">Plantillas activas y journeys reconstruidos en MCN, localizados en 6 países. Aquiva ensambla las plantillas; la producción creativa permanece con la agencia Denso.</div>
+    <div class="pilar-body">
+      <div>
+        <div class="col-lbl">Qué entregamos</div>
+        <div class="dl">
+          <div class="dl-i"><div class="dot"></div><span><strong>Hasta 100 plantillas activas</strong> de correo, WhatsApp y SMS, soportando hasta 20 segmentos, localizadas por país</span></div>
+          <div class="dl-i"><div class="dot"></div><span><strong>Journey de bienvenida</strong> de 8 correos + 3–4 journeys principales adicionales</span></div>
+          <div class="dl-i"><div class="dot"></div><span><strong>10 líneas WhatsApp Business</strong> (2 por país en 5 países): salientes + flujo entrante con transferencia a agente humano</span></div>
+          <div class="dl-i"><div class="dot"></div><span>Plantillas SMS por país, orquestadas desde MCN vía Masivian</span></div>
+          <div class="dl-i"><div class="dot"></div><span>Centro de preferencias: consentimiento por canal y país, cancelación de suscripción de autoservicio</span></div>
+        </div>
+      </div>
+      <div>
+        <div class="col-lbl">Criterios de Aceptación</div>
+        <div class="dl">
+          <div class="dl-i"><div class="dot dot-g"></div><span>Plantillas visualizan correctamente y coinciden con diseños aprobados por Denso en todas las variantes de país</span></div>
+          <div class="dl-i"><div class="dot dot-g"></div><span>Journey de bienvenida activo y disparando correctamente en MCN</span></div>
+          <div class="dl-i"><div class="dot dot-g"></div><span>10 líneas WhatsApp con plantillas aprobadas enviando exitosamente</span></div>
+          <div class="dl-i"><div class="dot dot-g"></div><span>Centro de preferencias aplica consentimiento y procesa bajas correctamente</span></div>
+        </div>
+        <div class="infonote">
+          <strong>Requiere del cliente</strong>
+          Las aprobaciones de plantillas WhatsApp Business (Meta) son gestionadas por el cliente. Los activos creativos finales los entrega Denso según cronograma acordado en el kickoff.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- P4 -->
+<div class="pilar">
+  <div class="pilar-aside"><div class="pilar-num">4</div><div class="pilar-line"></div></div>
+  <div>
+    <div class="pilar-eye">Pilar 4 · Activación</div>
+    <div class="pilar-title">Transición de Todos los Canales</div>
+    <div class="pilar-sub">MCN reemplaza HubSpot en salientes. Digital Engagement reemplaza Botmaker en entrantes. Meta Audiences sincroniza audiencias directamente desde Data Cloud.</div>
+    <div class="pilar-body">
+      <div>
+        <div class="col-lbl">Qué entregamos</div>
+        <div class="dl">
+          <div class="dl-i"><div class="dot"></div><span><strong>Email saliente desde MCN:</strong> ~14M/mes en IPs dedicadas con gestión de suscripciones, rebotes y velocidad de envío</span></div>
+          <div class="dl-i"><div class="dot"></div><span><strong>Calentamiento de IP:</strong> rampa desde ~11 agosto por 3–4 meses; remediación greylist Microsoft/Hotmail (~98K direcciones)</span></div>
+          <div class="dl-i"><div class="dot"></div><span><strong>WhatsApp + webchat entrantes:</strong> enrutamiento vía Digital Engagement, flow de triaje, formulario de validación y transferencia a agente</span></div>
+          <div class="dl-i"><div class="dot"></div><span><strong>WhatsApp saliente:</strong> campañas desde MCN en las 10 líneas</span></div>
+          <div class="dl-i"><div class="dot"></div><span><strong>Meta Audiences:</strong> lookalike, remarketing y supresión sincronizados desde Data Cloud (~80% de leads vienen de Meta)</span></div>
+          <div class="dl-i"><div class="dot"></div><span>Configuración básica Sales Cloud: 1 diseño de lead, 1 regla de asignación, 1 perfil de usuario</span></div>
+        </div>
+      </div>
+      <div>
+        <div class="col-lbl">Criterios de Aceptación</div>
+        <div class="dl">
+          <div class="dl-i"><div class="dot dot-g"></div><span>MCN enviando a volumen de producción desde IPs dedicadas con reputación saludable hacia finales de octubre</span></div>
+          <div class="dl-i"><div class="dot dot-g"></div><span>Entrantes WhatsApp y webchat enrutados sin errores a Digital Engagement</span></div>
+          <div class="dl-i"><div class="dot dot-g"></div><span>Meta Audiences activo con audiencias actualizándose según calendario acordado</span></div>
+          <div class="dl-i"><div class="dot dot-g"></div><span>Todos los canales en MCN y HubSpot cerrado al 29 de octubre</span></div>
+        </div>
+        <div class="infonote">
+          <strong>Requisito crítico del cliente</strong>
+          Aprovisionamiento de ~482 usuarios de agentes entrantes en Sales Cloud es responsabilidad del cliente y debe completarse en paralelo. Sin esto, el canal entrante no puede salir en vivo.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- P5 -->
+<div class="pilar">
+  <div class="pilar-aside"><div class="pilar-num">5</div></div>
+  <div>
+    <div class="pilar-eye">Pilar 5 · Tableros</div>
+    <div class="pilar-title">Reportería Operativa Estándar de MCN</div>
+    <div class="pilar-sub">El modelo DLO/DMO se configura para que los reportes estándar sean precisos desde el Día 1, consolidando todas las fuentes de engagement.</div>
+    <div class="pilar-body">
+      <div>
+        <div class="col-lbl">Qué entregamos</div>
+        <div class="dl">
+          <div class="dl-i"><div class="dot"></div><span>Reportes estándar MCN configurados y validados: envíos, entregabilidad, aperturas y clics en <strong>email, WhatsApp, SMS y Meta</strong></span></div>
+          <div class="dl-i"><div class="dot"></div><span>Reconciliación de integridad de leads: resolver brecha Meta vs. Data Cloud (~50K vs. 30K registros actuales)</span></div>
+          <div class="dl-i"><div class="dot"></div><span>Vista de monitoreo de entregabilidad: reputación de IP y ubicación en bandeja durante el calentamiento</span></div>
+          <div class="dl-i"><div class="dot"></div><span>Capacitación para <strong>18 usuarios</strong> de marketing (5 administradores) en MCN, Data Cloud y reportería</span></div>
+          <div class="dl-i"><div class="dot"></div><span>Conector Power BI incluido con Data Cloud (sin costo adicional)</span></div>
+        </div>
+      </div>
+      <div>
+        <div class="col-lbl">Criterios de Aceptación</div>
+        <div class="dl">
+          <div class="dl-i"><div class="dot dot-g"></div><span>Reportes activos mostrando datos precisos para todos los canales, sin extracción manual</span></div>
+          <div class="dl-i"><div class="dot dot-g"></div><span>Brecha de leads Meta/Data Cloud explicada y documentada</span></div>
+          <div class="dl-i"><div class="dot dot-g"></div><span>18 usuarios capacitados operando de forma independiente</span></div>
+        </div>
+        <div class="infonote phase2note">
+          <strong>Fase 2</strong>
+          ROI por canal, modelado de atribución, análisis del gasto en Meta y construcción en Tableau son Fase 2. Los reportes Power BI existentes del cliente no se refactorizan en Fase 1.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div><!-- end pillars -->
+</div>
+</section>
+
+<!-- ── CANALES ───────────────────────────────────── -->
+<section id="canales">
+<div class="c">
+<div class="sec-hd">
+  <div class="eyebrow">Cobertura de Canales</div>
+  <h2>Canales Activados — Fase 1</h2>
+  <p class="lead">Los cinco canales digitales activos de Multivacaciones migran a la nueva plataforma. Masivian permanece como proveedor de SMS, orquestado desde MCN.</p>
+</div>
+<div class="ch-grid">
+  <div class="ch-card">
+    <div class="ch-icon">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
+    </div>
+    <div class="ch-name">Correo Electrónico</div>
+    <span class="mode mode-o">Saliente</span>
+    <div class="ch-vol">~14 millones / mes · IPs dedicadas · calentamiento desde 11 agosto</div>
+  </div>
+  <div class="ch-card">
+    <div class="ch-icon">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+    </div>
+    <div class="ch-name">WhatsApp</div>
+    <span class="mode mode-o">Saliente</span><span class="mode mode-i">Entrante</span>
+    <div class="ch-vol">10 líneas (2 por país) · Digital Engagement para entrantes</div>
+  </div>
+  <div class="ch-card">
+    <div class="ch-icon">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18.01"/></svg>
+    </div>
+    <div class="ch-name">SMS</div>
+    <span class="mode mode-o">Saliente</span>
+    <div class="ch-vol">Proveedor: Masivian · Orquestado desde MCN · Por país</div>
+  </div>
+  <div class="ch-card">
+    <div class="ch-icon">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+    </div>
+    <div class="ch-name">Meta Ads / Audiences</div>
+    <span class="mode mode-o">Audiencias</span>
+    <div class="ch-vol">~80% de leads · Lookalike, remarketing y supresión</div>
+  </div>
+  <div class="ch-card">
+    <div class="ch-icon">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+    </div>
+    <div class="ch-name">Webchat</div>
+    <span class="mode mode-i">Entrante</span>
+    <div class="ch-vol">Digital Engagement · Flow de triaje · Transferencia a agente</div>
+  </div>
+</div>
+</div>
+</section>
+
+<!-- ── ALCANCE ───────────────────────────────────── -->
+<section id="alcance">
+<div class="c">
+<div class="sec-hd">
+  <div class="eyebrow">Gestión del Alcance</div>
+  <h2>Dentro y Fuera de Fase 1</h2>
+  <p class="lead">Definir qué queda para Fase 2 protege el cronograma del 29 de octubre. Los módulos de Club Vacacional están en una propuesta independiente.</p>
+</div>
+<div class="scope-grid">
+  <div class="scope-col in-col">
+    <div class="scope-head in">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20,6 9,17 4,12"/></svg>
+      Incluido en Fase 1
+    </div>
+    <div class="scope-items">
+      <div class="scope-cat">Datos y Segmentos</div>
+      <div class="si"><div class="si-dot"></div><span>Data Cloud configurada para 6 países (org única)</span></div>
+      <div class="si"><div class="si-dot"></div><span>Migración de todos los contactos y datos activos de HubSpot</span></div>
+      <div class="si"><div class="si-dot"></div><span>Todos los segmentos activos reconstruidos con verificación de paridad</span></div>
+      <div class="si"><div class="si-dot"></div><span>Integración de Meta Audiences (lookalike, remarketing, supresión)</span></div>
+
+      <div class="scope-cat">Contenido</div>
+      <div class="si"><div class="si-dot"></div><span>Hasta 100 plantillas activas (correo, WhatsApp, SMS)</span></div>
+      <div class="si"><div class="si-dot"></div><span>Journey de bienvenida (8 correos) + 3–4 journeys principales</span></div>
+      <div class="si"><div class="si-dot"></div><span>10 líneas de WhatsApp Business con flujos salientes e entrantes</span></div>
+      <div class="si"><div class="si-dot"></div><span>Centro de preferencias por canal y por país</span></div>
+
+      <div class="scope-cat">Canales y Reportería</div>
+      <div class="si"><div class="si-dot"></div><span>Email saliente ~14M/mes con calentamiento de IP y remediación greylist</span></div>
+      <div class="si"><div class="si-dot"></div><span>Reemplazo de Botmaker: entrantes WhatsApp + webchat vía Digital Engagement</span></div>
+      <div class="si"><div class="si-dot"></div><span>Reportería estándar MCN para todos los canales</span></div>
+      <div class="si"><div class="si-dot"></div><span>Reconciliación de leads Meta vs. Data Cloud</span></div>
+      <div class="si"><div class="si-dot"></div><span>Capacitación 18 usuarios (5 administradores)</span></div>
+      <div class="si"><div class="si-dot"></div><span>Discovery de Fase 2 en paralelo, sin costo adicional</span></div>
+    </div>
+  </div>
+  <div class="scope-col out-col">
+    <div class="scope-head out">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      Fuera de Alcance — Fase 1
+    </div>
+    <div class="scope-items">
+      <div class="scope-cat">Canales y Plataformas</div>
+      <div class="si"><div class="si-dot"></div><span>Integraciones con TikTok, Google, MyHotel o leads de calle</span></div>
+      <div class="si"><div class="si-dot"></div><span>Voz (BOSI) y canales no digitales</span></div>
+      <div class="si"><div class="si-dot"></div><span>Producción creativa (permanece con agencia Denso)</span></div>
+      <div class="si"><div class="si-dot"></div><span>Plantillas históricas o inactivas de HubSpot</span></div>
+      <div class="si"><div class="si-dot"></div><span>Plantillas que superen las 100 (disponibles por orden de cambio)</span></div>
+
+      <div class="scope-cat">Responsabilidad del Cliente</div>
+      <div class="si"><div class="si-dot"></div><span>Aprovisionamiento de ~482 usuarios de agentes entrantes en Sales Cloud</span></div>
+      <div class="si"><div class="si-dot"></div><span>Aprobaciones de plantillas WhatsApp Business ante Meta</span></div>
+      <div class="si"><div class="si-dot"></div><span>Activos creativos finales (texto, imágenes, HTML) entregados por Denso a tiempo</span></div>
+
+      <div class="scope-cat">Funcionalidades Futuras — Fase 2</div>
+      <div class="si"><div class="si-dot"></div><span>Agentforce y Einstein Bots</span></div>
+      <div class="si"><div class="si-dot"></div><span>Consola de agentes omnicanal y proceso de ventas</span></div>
+      <div class="si"><div class="si-dot"></div><span>Analítica avanzada, atribución y Tableau</span></div>
+      <div class="si"><div class="si-dot"></div><span>Clusters RFM, streaming insights, segmentación avanzada nueva</span></div>
+      <div class="si"><div class="si-dot"></div><span>Integración completa con Multinet/ODLine (historial, contratos, Decas)</span></div>
+      <div class="si"><div class="si-dot"></div><span>Refactorización de reportes de Power BI existentes</span></div>
+      <div class="si"><div class="si-dot"></div><span>Portal, PMS, motor de reservas, fidelización (Club Vacacional)</span></div>
+    </div>
+  </div>
+</div>
+</div>
+</section>
+
+<!-- ── SEGMENTOS ─────────────────────────────────── -->
+<section id="segmentos">
+<div class="c">
+<div class="sec-hd">
+  <div class="eyebrow">Pilar 2 · Detalle</div>
+  <h2>Inventario de Segmentos</h2>
+  <p class="lead">Los segmentos activos existentes en HubSpot, reproducidos en Data Cloud. Verificados por paridad antes de la transición.</p>
+</div>
+<div class="seg-wrap">
+<table class="seg-table">
+  <thead><tr><th>Segmento</th><th>Definición</th><th>Señal Fuente</th></tr></thead>
+  <tbody>
+    <tr><td><span class="seg-name">Nivel de Engagement</span></td><td>Frío, tibio, caliente y muy caliente por comportamiento de apertura de correo</td><td>Aperturas y clics de correo</td></tr>
+    <tr><td><span class="seg-name">País</span></td><td>6 países: Colombia (COP), resto (USD)</td><td>Atributo de contacto</td></tr>
+    <tr><td><span class="seg-name">Geo-Zonas de Miembros</span></td><td>Segmentos por país y geo-zonas específicas</td><td>Ubicación</td></tr>
+    <tr><td><span class="seg-name">Movimiento</span></td><td>Afiliados vs. Prospectos</td><td>Tipo de contacto</td></tr>
+    <tr><td><span class="seg-name">Rol de Contrato</span></td><td>Titular vs. Beneficiario</td><td>Atributo de contacto</td></tr>
+    <tr><td><span class="seg-name">Rango de Edad</span></td><td>Excluir menores de 25 y mayores de 60</td><td>Atributo de contacto</td></tr>
+    <tr><td><span class="seg-name">Cohorte Journey de Bienvenida</span></td><td>Nuevos contratos que ingresan al flujo de 8 correos</td><td>Fecha de inscripción</td></tr>
+    <tr><td><span class="seg-name">Reactivados y Remarketing</span></td><td>Leads re-registrados o re-convertidos</td><td>Historial de leads</td></tr>
+    <tr><td><span class="seg-name">Audiencias Meta — Lookalike</span></td><td>Audiencias similares por país</td><td>Meta + Audiences SKU</td></tr>
+    <tr><td><span class="seg-name">Audiencias Meta — Remarketing</span></td><td>Leads que interactuaron con anuncios</td><td>Meta + Audiences SKU</td></tr>
+  </tbody>
+</table>
+</div>
+</div>
+</section>
+
+<!-- ── CRONOGRAMA ────────────────────────────────── -->
+<section id="cronograma">
+<div class="c">
+<div class="sec-hd">
+  <div class="eyebrow">Fechas Clave</div>
+  <h2>Cronograma del Proyecto</h2>
+  <p class="lead">13 semanas desde el arranque hasta el cierre de HubSpot. La org de Salesforce debe estar lista antes del inicio para no comprometer el calentamiento de IP.</p>
+</div>
+<div class="tl-wrap">
+<div class="tl">
+  <div class="tl-track"><div class="tl-fill"></div></div>
+  <div class="tl-nodes">
+    <div class="tl-node pre">
+      <div class="tl-date">31 jul 2026</div>
+      <div class="tl-dot"></div>
+      <div class="tl-lbl">Org Salesforce + IPs aprovisionadas</div>
+    </div>
+    <div class="tl-node ms">
+      <div class="tl-date">1 ago 2026</div>
+      <div class="tl-dot"></div>
+      <div class="tl-lbl">Inicio del Proyecto · Hito 1 · $65,725</div>
+    </div>
+    <div class="tl-node ms">
+      <div class="tl-date">11 ago 2026</div>
+      <div class="tl-dot"></div>
+      <div class="tl-lbl">Inicio calentamiento de IP</div>
+    </div>
+    <div class="tl-node ms">
+      <div class="tl-date">22 sep 2026</div>
+      <div class="tl-dot"></div>
+      <div class="tl-lbl">Go-live progresivo · Hito 2 · $65,725</div>
+    </div>
+    <div class="tl-node dl">
+      <div class="tl-date">29 oct 2026</div>
+      <div class="tl-dot"></div>
+      <div class="tl-lbl">Cierre HubSpot · Hito 3 · $65,725</div>
+    </div>
+  </div>
+</div>
+</div>
+<div class="warming-bar">
+  <div class="w-lbl">Calentamiento IP</div>
+  <p>Rampa de 3–4 meses desde el 11 de agosto. Reputación del remitente monitoreada continuamente. Remediación de greylist Microsoft/Hotmail (~98K direcciones). Aviso de no renovación de HubSpot debe enviarse a más tardar el <strong>31 de agosto de 2026</strong>.</p>
+</div>
+</div>
+</section>
+
+<!-- ── INVERSIÓN ─────────────────────────────────── -->
+<section id="inversion">
+<div class="c">
+<div class="sec-hd">
+  <div class="eyebrow">Precio Fijo · Net-15</div>
+  <h2>Estructura de Inversión</h2>
+  <p class="lead">Tres hitos de facturación atados a entregables. El precio no cambia salvo modificación de alcance mediante Orden de Cambio firmada.</p>
+</div>
+<div class="inv-grid">
+  <div class="inv-card">
+    <div class="inv-pct">33%</div>
+    <div class="inv-amt">$65,725.33</div>
+    <div class="inv-dt">1 de agosto de 2026</div>
+    <div class="inv-ms">Inicio del proyecto</div>
+  </div>
+  <div class="inv-card">
+    <div class="inv-pct">33%</div>
+    <div class="inv-amt">$65,725.33</div>
+    <div class="inv-dt">22 de septiembre de 2026</div>
+    <div class="inv-ms">Inicio de transición progresiva</div>
+  </div>
+  <div class="inv-card">
+    <div class="inv-pct">33%</div>
+    <div class="inv-amt">$65,725.33</div>
+    <div class="inv-dt">29 de octubre de 2026</div>
+    <div class="inv-ms">Desactivado de HubSpot</div>
+  </div>
+</div>
+<div class="inv-total">
+  <div class="inv-total-lbl">
+    Total del Proyecto
+    <span>Precio fijo · USD · Pago a 15 días (Net-15)</span>
+  </div>
+  <div class="inv-total-val">$197,176</div>
+</div>
+</div>
+</section>
+
+<!-- ── RESPONSABILIDADES ─────────────────────────── -->
+<section id="ustedes">
+<div class="c">
+<div class="sec-hd">
+  <div class="eyebrow">Responsabilidades del Cliente</div>
+  <h2>Lo Que Necesitamos de Ustedes</h2>
+  <p class="lead">El éxito del proyecto depende de estas acciones del lado del cliente. Los ítems en rojo tienen impacto directo en el cronograma.</p>
+</div>
+<div class="resp-grid">
+  <div class="resp-card resp-urgent">
+    <div class="resp-ico">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><circle cx="12" cy="16" r=".5" fill="currentColor"/></svg>
+    </div>
+    <div class="resp-content">
+      <h4>Org Salesforce + IPs dedicadas</h4>
+      <p>Aprovisionadas antes del <strong>31 de julio</strong>. Sin margen de recuperación — bloquea el inicio del calentamiento de IP el 11 de agosto.</p>
+    </div>
+  </div>
+  <div class="resp-card resp-urgent">
+    <div class="resp-ico">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><circle cx="12" cy="16" r=".5" fill="currentColor"/></svg>
+    </div>
+    <div class="resp-content">
+      <h4>Aviso de no renovación a HubSpot</h4>
+      <p>Enviado a más tardar el <strong>31 de agosto de 2026</strong>, conforme a los requisitos contractuales de HubSpot.</p>
+    </div>
+  </div>
+  <div class="resp-card resp-urgent">
+    <div class="resp-ico">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><circle cx="12" cy="16" r=".5" fill="currentColor"/></svg>
+    </div>
+    <div class="resp-content">
+      <h4>~482 usuarios de agentes entrantes</h4>
+      <p>Aprovisionamiento en Sales Cloud es <strong>responsabilidad del cliente</strong>. Debe completarse en paralelo para que el canal entrante pueda salir en vivo.</p>
+    </div>
+  </div>
+  <div class="resp-card">
+    <div class="resp-ico">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/></svg>
+    </div>
+    <div class="resp-content">
+      <h4>Credenciales y diccionarios de datos</h4>
+      <p>Credenciales de API, mapeos de campos y diccionarios de datos para todas las fuentes antes del sprint de ingestión.</p>
+    </div>
+  </div>
+  <div class="resp-card">
+    <div class="resp-ico">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+    </div>
+    <div class="resp-content">
+      <h4>Acceso de lectura a HubSpot</h4>
+      <p>Con suficiente anticipación para auditar plantillas y journeys activos antes del sprint de construcción de contenido.</p>
+    </div>
+  </div>
+  <div class="resp-card">
+    <div class="resp-ico">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><polyline points="3,9 21,9"/><polyline points="9,21 9,9"/></svg>
+    </div>
+    <div class="resp-content">
+      <h4>Confirmación de licenciamiento</h4>
+      <p>Confirmar con el Account Executive de Salesforce las licencias de Digital Engagement (Messaging User) antes del kickoff.</p>
+    </div>
+  </div>
+  <div class="resp-card">
+    <div class="resp-ico">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+    </div>
+    <div class="resp-content">
+      <h4>Activos creativos de Denso</h4>
+      <p>Texto, imágenes y HTML aprobado por marca entregados a Aquiva según cronograma acordado en el kickoff. Aquiva no cubre demoras en producción creativa.</p>
+    </div>
+  </div>
+  <div class="resp-card">
+    <div class="resp-ico">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg>
+    </div>
+    <div class="resp-content">
+      <h4>Volumen de conversaciones WhatsApp</h4>
+      <p>Confirmar si ~677K es por día o por mes. Esta cifra determina el costo de licenciamiento de Digital Engagement y Meta antes de ejecutar el contrato.</p>
+    </div>
+  </div>
+  <div class="resp-card">
+    <div class="resp-ico">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M6.4 6.4l-.7-.7M18.3 5.7l-.7.7M5.7 18.3l.7-.7M17.6 17.6l.7.7M20 12h1M3 12H2M12 20v1M12 3V2"/></svg>
+    </div>
+    <div class="resp-content">
+      <h4>Acceso a Meta Business Manager</h4>
+      <p>Para la reconciliación de leads y la configuración del SKU de Meta Audiences. Definir un punto de contacto dedicado con Aquiva durante todo el proyecto.</p>
+    </div>
+  </div>
+</div>
+</div>
+</section>
+
+</main>
+
+<footer>
+  <p>Preparado por <strong>Aquiva Labs, LLC</strong> para Multivacaciones Decameron · Julio 2026 · Esta oferta expira 30 días desde su preparación (24 agosto 2026)</p>
+</footer>
+
+<script>
+function toggleTheme() {
+  const r = document.documentElement;
+  const curr = r.dataset.theme;
+  if (!curr) {
+    r.dataset.theme = window.matchMedia('(prefers-color-scheme:dark)').matches ? 'light' : 'dark';
+  } else {
+    r.dataset.theme = curr === 'dark' ? 'light' : 'dark';
+  }
+}
+
+const sections = document.querySelectorAll('section[id]');
+const links = document.querySelectorAll('.nav-links a');
+let ticking = false;
+
+function updateNav() {
+  let current = '';
+  sections.forEach(s => {
+    if (window.scrollY >= s.offsetTop - 80) current = s.id;
+  });
+  links.forEach(l => {
+    l.classList.toggle('active', l.getAttribute('href') === '#' + current);
+  });
+  ticking = false;
+}
+
+window.addEventListener('scroll', () => {
+  if (!ticking) { requestAnimationFrame(updateNav); ticking = true; }
+}, { passive: true });
+
+updateNav();
+</script>
+
+</body></html>
